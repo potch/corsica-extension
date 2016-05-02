@@ -1,0 +1,32 @@
+{
+
+  "manifest_version": 2,
+  "name": "Send to Corsica",
+  "version": "1.0",
+
+  "description": "Send the URL of the currently open tab to a Corsica screen.",
+  "icons": {
+    "32": "icons/corsica-32.png",
+    "64": "icons/corsica-64.png"
+  },
+
+  "applications": {
+    "gecko": {
+      "id": "send2corsica@potch.me",
+      "strict_min_version": "45.0"
+    }
+  },
+  "permissions": [
+    "activeTab"
+  ],
+
+  "browser_action": {
+    "default_icon": {
+      "32": "icons/corsica-32.png",
+      "64": "icons/corsica-64.png"
+    },
+    "default_title": "Send to Corsica",
+    "default_popup": "panel.html"
+  }
+
+}
