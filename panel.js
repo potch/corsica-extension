@@ -3,11 +3,6 @@ var server = 'http://corsica.mozilla.io/';
 
 function sendCommand(command, nolog) {
 
-  if (command.substr(0,5).toLowerCase() === 'repl ') {
-    replCommand(command);
-    return;
-  }
-
   if (command.indexOf('screen=') === -1 && defaultScreen) {
     command += ' screen=' + defaultScreen;
   }
@@ -26,12 +21,21 @@ function sendCommand(command, nolog) {
 }
 
 var sendButton = document.querySelector('.send');
+var argsEl = document.querySelector('.args');
 
-  sendButton.addEventListener('click', function () {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    sendCommand(tabs[0].url);
+sendButton.addEventListener('click', submit);
+
+function submit() {
+  var args = argsEl.value;
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    sendCommand(tabs[0].url + ' ' + args);
   });
+}
 
+argsEl.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    submit();
+  }
 });
 
 var select = document.querySelector('.screen');
