@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "Send to Corsica",
-  "version": "2.0",
+  "version": "3.0",
 
   "description": "Send the URL of the currently open tab to a Corsica screen.",
   "icons": {
@@ -17,14 +17,17 @@
     }
   },
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "tabs"
   ],
 
-  "browser_action": {
-    "default_icon": {
-      "32": "icons/corsica-32.png",
-      "64": "icons/corsica-64.png"
-    },
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "page_action": {
+    "browser_style": false,
+    "default_icon": "icons/corsica-32.png",
     "default_title": "Send to Corsica",
     "default_popup": "panel.html"
   }
