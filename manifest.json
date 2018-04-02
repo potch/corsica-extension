@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "Send to Corsica",
-  "version": "3.0",
+  "version": "3.0.1",
 
   "description": "Send the URL of the currently open tab to a Corsica screen.",
   "icons": {
